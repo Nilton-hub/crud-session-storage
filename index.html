@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Cadastro de Usuários</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+
+  <body>
+    <header>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#" class="active" title="Usuários" data-order="0" data-text="Listagem">
+              <i class="bx bxs-user"></i>
+              Usuários
+            </a></li>
+          <li><a href="#" title="sep" data-order="-1">|</a></li>
+          <li><a href="#" title="Cadastrar" data-order="1" data-text="Novo Usuário">
+              <i class="bx bxs-message-square-add"></i>
+              Cadastrar
+            </a></li>
+        </ul>
+      </nav>
+    </header>
+    <h1>Listagem</h1>
+    <main>
+      <section class="user-crud">
+        <div>
+          <table class="none">
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Gerenciar</th>
+              </tr>
+            </thead>
+            <tbody><!-- 
+              <tr class="user-row">
+                <td class="cell-photo">[ MUITO FEIO ]</td>
+                <td>Senhor Anônimo</td>
+                <td>email@anonimo.com</td>
+                <td>
+                  <button class="edit" title="Editar">
+                    <i class="bx bxs-edit"></i>
+                  </button>
+                  <button class="delete" title="Deletar">
+                    <i class="bx bx-trash"></i>
+                  </button>
+                </td>
+              </tr>
+           --></tbody>
+          </table>
+          <div style="text-align: center;" class="empty-content">
+            <h2>Não há nada, por enquanto! &#128064;</h2>
+            <p>
+              Ao inserir novos registros, eles aparecerão aqui. &#128521; &#128521;
+            </p>
+          </div>
+        </div>
+        <div>
+          <form action="" enctype="multipart/form-data" id="form-register">
+            <div id="img-profile"></div>
+            <div>
+              <label for="name">Nome: </label>
+              <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+              <label for="email">Email: </label>
+              <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+              <label for="photo">Foto: </label>
+              <input type="file" name="photo" id="photo" accept="image/jpeg, image/png, image/gif, image/webp">
+            </div>
+            <button>Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <dialog class="message">
+      <button class="btn-modal-close">×</button>
+    </dialog>
+    <div class="message none">
+      <button class="btn-modal-close">×</button>
+      <p></p>
+    </div>
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </body>
+</html>

@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;300;500&family=IBM+Plex+Serif:wght@100;300;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  color: #ffe6e6;
+  transition: all 0.25s linear 0s;
+}
+
+html, body {
+  background-image: linear-gradient(to top left, #1e1f1e, #2e2e2e);
+  font-family: 'IBM Plex Sans Thai', sans-serif;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'IBM Plex Serif', serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.none {
+  display: none;
+}
+
+b, strong, th {
+  font-weight: 500;
+}
+
+header {
+  background-image: linear-gradient(to right, #990000, #ff4d4d);
+  height: 2.5rem;
+  display: grid;
+  place-content: center;
+  margin-bottom: 50px;
+}
+
+@keyframes dialog-animate {
+  from {
+    opacity: 0;
+    top: 5px;
+  }
+
+  to {
+    opacity: 1;
+    top: initial;
+  }
+}
+
+@keyframes remove-table-row {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+.remove-table-row {
+  animation: remove-table-row 0.25s linear 0s 1 normal forwards;
+}
+
+.main-nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-weight: 300;
+}
+
+.main-nav a:hover { text-decoration: underline; }
+.main-nav a.active { background-color: rgba(0, 0, 0, 0.5); }
+
+.user-crud {
+  white-space: nowrap;
+  position: relative;
+  left: 0vw;
+  width: 100%
+}
+
+.user-crud > div {
+  white-space: normal;
+  display: inline-block;
+  width: 100%;
+}
+
+.user-crud table {
+  width: 90%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 5%;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid rgba(245, 222, 179, 0.5);
+}
+/* ímpares */
+.user-crud tbody tr:nth-child(odd) {
+  background-color: #121212;
+}
+/* pares */
+.user-crud tr:nth-child(even) { background-color: transparent; }
+
+.user-crud th,
+.user-crud td { padding: 3px; }
+
+.user-crud th { border: 1px solid rgba(245, 222, 179, 0.5); }
+
+.user-crud td.cell-photo div {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.user-crud button {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.user-crud button:first-child { margin-right: 6px; }
+
+.user-crud button.edit {
+  color: green;
+  border: 1px solid green;
+}
+
+.user-crud button.edit:hover {
+  color: inherit;
+  background: green;
+}
+
+.user-crud button.edit .bx {
+  color: green;
+  transition: all 0.2s;
+}
+.user-crud button.edit:hover .bx { color: inherit; }
+
+.user-crud button.delete {
+  color: #ff8888;
+  border: 1px solid #ff9999;
+}
+
+.user-crud button.delete:hover {
+  color: inherit;
+  background: #ff9999;
+}
+
+.user-crud button.delete .bx {
+  color: #ff8888;
+  transition: all 0.2s;
+}
+
+.user-crud button.delete:hover .bx { color: inherit; }
+
+.user-crud form {
+  width: 90%;
+  position: absolute;
+  top: 0;
+  left: 105%;
+}
+
+#img-profile {
+  border: 2px dashed gray;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+}
+
+.user-crud input {
+  width: 100%;
+  border-radius: 3px;
+  padding: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.user-crud input[type="text"],
+.user-crud input[type="email"],
+.user-crud input[type="password"]
+.user-crud textarea {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.user-crud form div { margin-bottom: 15px; }
+
+dialog.modal-open form button,
+.user-crud form button {
+  display: block;
+  margin-left: auto;
+  width: 100%;
+  border-radius: 3px;
+  padding: 6px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  background-color: green;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+dialog.modal-open form button:hover,
+.user-crud form button:hover {
+  background-color: rgb(34, 184, 34);
+  color: white;
+}
+
+dialog {
+  animation: dialog-animate 0.25s linear 0s 1 normal forwards;
+}
+
+dialog.modal-open {
+  width: 90%;
+}
+
+dialog.modal-open form {
+  width: 100%;
+}
+
+dialog.modal-open form input {
+  border: 1px solid hsla(0, 100%, 77%, 0.5);
+  width: 100%;
+}
+
+dialog.modal-open form input[type="file"] {
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+dialog.modal-open form input[type="text"],
+dialog.modal-open form input[type="email"],
+dialog.modal-open form input[type="password"],
+dialog.modal-open form textarea {
+  border-radius: 3px;
+  padding: 6px;
+  background-color: rgba(0 0 0 / 0.5);
+}
+
+dialog {
+  max-width: 900px;
+}
+
+dialog,
+div.message {
+  border-radius: 5px;
+  background-color: #4d0000;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+dialog::backdrop {
+  background-color: rgba(0 0 0 / 0.5) !important;
+}
+
+div.message {
+  position: fixed;
+  top: 3rem;
+  right: 10px;
+  padding: 1rem 2rem;
+}
+
+div.message p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+dialog button.btn-modal-close,
+div.message button.btn-modal-close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.btns-modaloption {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+[id^="user-delete"] {
+  color: white;
+  padding: 5px 15px;
+  border-radius: 3px;
+  border: 1px solid #c2b090;
+  cursor: pointer;
+}
+
+#user-delete {
+  background: #a00606;
+}
+
+#user-delete-cancel {
+  background: green;
+}
+
+@media screen and (min-width: 1000px) {
+  .user-crud form {
+    max-width: 1000px;
+    left: calc((100vw - 1000px) / 2 + 100vw);
+  }
+}
